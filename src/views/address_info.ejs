@@ -1,0 +1,87 @@
+<%- include('partials/Header') %>
+    <!-- navabr start -->
+    <%- include('partials/Navbar') %>
+        <!-- navabr end  -->
+
+        <!-- application form start  -->
+        <section class="flex justify-center items-center mt-20 mb-10">
+            <main id="form_1" class="bg-white w-3/5 rounded-lg px-10 py-14"
+                style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                <div>
+                    <div>
+                        <h1 class="text-4xl font-bold mb-5">Address Information</h1>
+                    </div>
+                    <div>
+                        <p class="text-lg font-normal text-[#555E67]">Please include 2 years of address history.</p>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <% if (method==='PUT' ) { %>
+                        <form action="/portal/dashboard/action/<%- address_info._id %>?form=2" method="POST">
+                            <%} else { %>
+                                <form action="/portal/dashboard/action?form=2" method="POST">
+                                    <% } %>
+                                        <div>
+                                            <label class="text-lg font-semibold">Current Address</label>
+                                            <input type="text" name="current_address"
+                                                value="<%- address_info.current_address  %>"
+                                                class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                            <input type="hidden" name="lead_id" value="<%- lead  %>"
+                                                class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+
+                                        </div>
+
+                                        <div class="grid grid-cols-2 gap-2 my-2">
+                                            <div>
+                                                <label class="text-lg font-semibold">Year at Current Address</label>
+                                                <input type="text" name="years_at_current_address"
+                                                    value="<%- address_info.years_at_current_address  %>"
+                                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                            </div>
+                                            <div>
+                                                <label class="text-lg font-semibold">Month at Current Address</label>
+                                                <input type="text" name="month_at_current_address"
+                                                    value="<%- address_info.month_at_current_address %>"
+                                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-2 my-2">
+                                            <div>
+                                                <label class="text-lg font-semibold">Current Monthly Rent Amount
+                                                    (optional)</label>
+                                                <input type="text" name="current_monthly_rent_amount"
+                                                    value="<%- address_info.current_monthly_rent_amount %>"
+                                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                            </div>
+                                            <div>
+                                                <label class="text-lg font-semibold">Mailing Address (optional)</label>
+                                                <input type="text" name="mailing_address"
+                                                    value="<%- address_info.mailing_address %>"
+                                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label class="text-lg font-semibold">Another Former Address
+                                                (optional)</label>
+                                            <input type="text" name="another_former_address"
+                                                value="<%- address_info.another_former_address %>"
+                                                class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                        </div>
+
+                                        <div class="my-10">
+                                            <button type="button"
+                                                class="bg-[#CCCCCC] text-white w-60 h-16 rounded-lg text-2xl font-semibold mr-5">
+                                                <a href="/portal/dashboard/application?form=1">Go Back</a>
+                                            </button>
+                                            <button type="submit"
+                                                class="bg-[#54D491] text-white w-60 h-16 rounded-lg text-2xl font-semibold">Next
+                                                Step</button>
+                                        </div>
+                                </form>
+                </div>
+            </main>
+        </section>
+        <!-- application form ends  -->
+
+        <%- include('partials/Footer') %>

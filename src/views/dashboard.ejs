@@ -1,0 +1,61 @@
+<%- include('partials/Header') %>
+<!-- navabr start -->
+<%- include('partials/Navbar') %>
+<!-- navabr end  -->
+
+<!-- application form start  -->
+<section class="flex justify-center items-center mt-20 mb-10">
+    <main id="form_1" class="bg-white w-3/5 rounded-lg px-10 py-14" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+        <div>
+            <div>
+                <h1 class="text-4xl font-bold mb-5">Let's Get Started!</h1>
+            </div>
+            <div>
+                <p class="text-lg font-normal text-[#555E67]">Please provide a few details about yourself.</p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <% if (method === 'PUT') { %>
+            <form action="/portal/dashboard/action/<%- lead._id %>?form=1" method="POST">
+            <%} else { %>
+            <form action="/portal/dashboard/action?form=1" method="POST">
+            <% } %>
+                <div>
+                    <label class="text-lg font-semibold">Legal First Name</label>
+                    <input type="text" name="firstname" value="<%- lead.firstname %>"  placeholder="Firstname" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div class="my-2">
+                    <label class="text-lg font-semibold">Middle Name</label>
+                    <input type="text" name="middlename" placeholder="MiddleName" value="<%- lead.middlename %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div>
+                    <label class="text-lg font-semibold">Legal Last Name</label>
+                    <input type="text" name="lastname" value="<%- lead.lastname %>" placeholder="LastName" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div class="my-2">
+                    <label class="text-lg font-semibold">Suffix</label>
+                    <input type="text" name="suffix" placeholder="Middle Name" value="<%- lead.suffix %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div>
+                    <label class="text-lg font-semibold">Email</label>
+                    <input type="email" name="email" value="<%- lead.email %>" placeholder="email" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div class="my-2">
+                    <label class="text-lg font-semibold">Phone Number</label>
+                    <input type="text" name="phone_number" value="<%- lead.phone %>" placeholder="Phone Number" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+                <div>
+                    <label class="text-lg font-semibold">Martial Status</label>
+                    <input type="text" name="martial" value="<%- lead.martial_status %>" placeholder="Middle Name" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+
+                <div class="my-10">
+                    <button type="submit" class="bg-[#54D491] text-white w-60 h-16 rounded-lg text-2xl font-semibold">Next Step</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+<!-- application form ends  -->
+
+<%- include('partials/Footer') %>

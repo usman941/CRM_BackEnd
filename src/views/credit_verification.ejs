@@ -1,0 +1,127 @@
+<%- include('partials/Header') %>
+    <!-- navabr start -->
+    <%- include('partials/Navbar') %>
+        <!-- navabr end  -->
+
+        <!-- application form start  -->
+        <section class="flex justify-center items-center mt-20 mb-10">
+            <main id="form_1" class="bg-white w-3/5 rounded-lg px-10 py-14"
+                style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                <div>
+                    <div>
+                        <h1 class="text-4xl font-bold mb-5">Credit verification</h1>
+                    </div>
+                    <div>
+                        <p class="text-lg font-normal text-[#555E67]">
+                            To quickly help find a mortgage loan that best fits your needs, you are authorizing to
+                            review your credit history. This information is required to qualify for a mortgage loan
+                        </p>
+                    </div>
+                    <% if (message) { %>
+                        <p class="text-red-600"><%- message  %></p>
+                    <% } %>
+                </div>
+                <div class="mt-5">
+                    <% if (method==='PUT' ) { %>
+                        <form action="/portal/dashboard/action/<%- credit._id %>?form=17" method="POST">
+                            <%} else { %>
+                                <form action="/portal/dashboard/action?form=17" method="POST">
+                                    <% } %>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-lg font-semibold">Borrower SSN</label>
+                                <input type="text" name="borrower_ssn" value="<%- credit.borrower_ssn %>"
+                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                                    <input type="hidden" name="lead_id" value="<%- lead %>">
+                            </div>
+                            <div>
+                                <label class="text-lg font-semibold">Borrower Date Of Birth</label>
+                                <input type="text" name="borrower_dob" value="<%- credit.borrower_dob %>"
+                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-lg font-semibold">Co-Borrower SSN</label>
+                                <input type="text" name="co_borrower_ssn" value="<%- credit.co_borrower_ssn %>"
+                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                            </div>
+                            <div>
+                                <label class="text-lg font-semibold">Co-Borrower Date Of Birth</label>
+                                <input type="text" name="co_borrower_dob" value="<%- credit.co_borrower_dob %>"
+                                    class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-start items-center gap-2 my-5">
+                            <input type="checkbox" name="agreed" <% if (credit.agreed === true) { %>
+                                checked
+                            <% } %>>
+                            <p class="text-xs">I agree to the below terms</p>
+                        </div>
+
+                        <div>
+                            <h1>Terms</h1>
+                            <p class="bg-[#F9FAFB] text-black max-h-36 overflow-y-auto px-5 py-3">
+                                You understand that by checking the “I Accept” box above and clicking on the 'Authorize'
+                                button you:
+                                Agree to the terms and conditions hereunder, acknowledge receipt of our privacy policy
+                                and you are providing 'written instructions' under the FCRA to Mortgage Company (“us” or
+                                “our”) authorizing us to obtain information from your personal credit profile from each
+                                credit reporting agency and you;
+                                Confirm your authorization for us to obtain your credit profile from any consumer
+                                reporting agency to display to you, to confirm your identity to avoid fraudulent
+                                transactions in your name, and to enable any consumer reporting agency to monitor your
+                                credit for change and you;
+                                Authorize us to obtain such information to confirm your identity and display your credit
+                                data to you and you;
+                                Agree to the following Terms and Conditions Disclaimer: You understand that by clicking
+                                on the "I Authorize" button and signing up for services, you are providing "written
+                                instructions" to us and its employees, agents, subsidiaries, affiliates, contractors,
+                                third party data sources and suppliers, and all other credit reporting agencies under
+                                the Fair Credit Reporting Act (FCRA), as amended, to access your credit files from each
+                                national credit reporting agency and to exchange information about you with each such
+                                national credit reporting agency in order to verify your identity and to provide the
+                                products and / or services to you. You agree and hereby authorize Company, its agents
+                                and employees, to provide your personally identifiable information (or, if applicable,
+                                information about your child you have enrolled) to third parties as provided in our
+                                Privacy Policy, as may be amended from time to time, You waive any and all claims
+                                against Company and its agents and employees for the acts or omissions of these third
+                                parties with regard to the use or disclosure of such information. Your further authorize
+                                Company and its agents and employees to obtain various information and reports about you
+                                (or about your child that you have enrolled, if applicable) in order to provide the
+                                products and / or services, including, but not limited to, address history reports, name
+                                and alias reports, criminal reports or sex offender reports, and to provide monitoring
+                                and alerts and you;
+                                Agree to the following Privacy Policy / Terms and Conditions Disclaimer: While enrolling
+                                for the products and / or services, we will ask you for the following types of
+                                information: contact information (such as name, address, phone number, and email
+                                address); sensitive information (such as date of birth, driver's license number and
+                                social security number); personal information to verify your identity and financial
+                                information (such as credit card number). This information is required in order to
+                                verify your identity, charge you the agreed upon fees for our products and services, and
+                                to fulfill our obligation to provide our products and services to you, including
+                                communicating with third parties as necessary to provide such products and services ,
+                                such as identification verification companies, consumer reporting agencies, payment
+                                validation companies, law enforcement agencies, or others.
+                            </p>
+                        </div>
+
+                        <div class="my-10">
+                            <button type="button"
+                                class="bg-[#CCCCCC] text-white w-60 h-16 rounded-lg text-2xl font-semibold mr-5">
+                                <a href="/portal/dashboard/application?form=9">Go Back</a>
+                            </button>
+                            <button type="submit"
+                                class="bg-[#54D491] text-white w-60 h-16 rounded-lg text-2xl font-semibold">Next
+                                Step</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </section>
+        <!-- application form ends  -->
+
+        <%- include('partials/Footer') %>

@@ -1,0 +1,39 @@
+<script>
+    const co_borrower_details_form = document.getElementById('co_borrower_details_form');
+    const real_estate_agent_form = document.getElementById('real_estate_agent_form');
+    const assets_model = document.getElementById('assets_model');
+
+    window.onload = function() {
+        coBorrowerDetailsFunc();
+        isRealEstateAgentFunc();
+    }
+
+    function coBorrowerDetailsFunc() {
+        const is_co_borrower_details = document.querySelector('input[name="is_co_borrower_details"]:checked').value;
+        if(is_co_borrower_details == 'yes') {
+            co_borrower_details_form.style.display = 'block';
+        } else {
+            co_borrower_details_form.style.display = 'none';
+        }
+    }
+
+    function isRealEstateAgentFunc() {
+        const is_real_estate_agent = document.querySelector('input[name="is_real_estate_agent"]:checked').value;
+        if(is_real_estate_agent == 'yes') {
+            real_estate_agent_form.style.display = 'block';
+        } else {
+            real_estate_agent_form.style.display = 'none';
+        }
+    }
+
+    function isAsset(){
+        // const is_property_type = document.querySelector('input[name="is_asset_type"]:checked').value;
+        // if(is_property_type == 'Single-Family') {
+        //     assets_model.style.display = 'block';
+        // } else {
+        //     assets_model.style.display = 'none';
+        // }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "1a7a92ae-b210-42b3-ba2e-495ce05eb210",
+		"name": "msf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14174532"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"session\",\r\n    \"email\":\"session889@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/user/register"
+			},
+			"response": []
+		},
+		{
+			"name": "logout user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 652815589932268|1zuoow9qtcfX_HHDKpwbjfQCL94",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "{{URL}}/user/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"session889@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/user/login"
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/user/me"
+			},
+			"response": []
+		},
+		{
+			"name": "add lead",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\":\"Ammad test\",\r\n    \"lastname\":\"Developer\",\r\n    \"email\":\"mohammadammad144@gmail.com\",\r\n    \"phone\":\"03035339904\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/lead/add"
+			},
+			"response": []
+		},
+		{
+			"name": "get all leads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/lead"
+			},
+			"response": []
+		},
+		{
+			"name": "lead by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/lead/params/63fa21848e4d637136b949af"
+			},
+			"response": []
+		},
+		{
+			"name": "delete lead",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{URL}}/lead/delete/63ecd4e6c7d5466c7f0e1fff"
+			},
+			"response": []
+		},
+		{
+			"name": "send message by email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mohammadammad144@gmail.com\",\r\n    \"subject\":\"Testing API 2 ENV db\",\r\n    \"message\":\"This is only for testing purposes 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/conversation/send"
+			},
+			"response": []
+		},
+		{
+			"name": "send referral link",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"leadId\":\"63ff58ce4d8d0dbdcad11007\",\r\n    \"documents_required\":[\r\n        \"resume\",\r\n        \"passport\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/lead/referral"
+			},
+			"response": []
+		},
+		{
+			"name": "create user in service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"shayan\",\r\n    \"email\":\"shayan136@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"role\":\"loan_officer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/user_management/add"
+			},
+			"response": []
+		},
+		{
+			"name": "update user role in service",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\":\"loan_processor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/user_management/update/63f72ea366ff27abc433f987"
+			},
+			"response": []
+		},
+		{
+			"name": "get all users in service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/user_management"
+			},
+			"response": []
+		},
+		{
+			"name": "get users by id in service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/user_management?id=63f72ea366ff27abc433f987",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"user_management"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63f72ea366ff27abc433f987"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Email to Usman Urgently 2\",\r\n    \"description\":\"Hey, email usman.........blah blah blah\",\r\n    \"deadline\":\"2/23/2023\",\r\n    \"assigned_to\":\"63f72ea366ff27abc433f987\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/task/add"
+			},
+			"response": []
+		},
+		{
+			"name": "get all task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/task"
+			},
+			"response": []
+		},
+		{
+			"name": "get task by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/task?id=63f74b53cff812cf23ecb5f4",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"task"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63f74b53cff812cf23ecb5f4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update task status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/task/update/63f74b53cff812cf23ecb5f4"
+			},
+			"response": []
+		},
+		{
+			"name": "delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{URL}}/task/delete/63f74b53cff812cf23ecb5f4"
+			},
+			"response": []
+		},
+		{
+			"name": "add contact list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contact_group\":[\r\n        {\r\n            \"group_name\":\"Personal Group\",\r\n            \"contacts\":[\r\n                \"63f755fd110ab77a1697fc30\",\r\n                \"63f72ea366ff27abc433f987\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/contact/add"
+			},
+			"response": []
+		},
+		{
+			"name": "get all contacts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/contact"
+			},
+			"response": []
+		},
+		{
+			"name": "update contact group name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"group_name\":\"updated name\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/contact/update/63f75629110ab77a1697fc33"
+			},
+			"response": []
+		},
+		{
+			"name": "sms api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to\":\"923170288819\",\r\n    \"message\":\"Hi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/conversation/sms"
+			},
+			"response": []
+		},
+		{
+			"name": "company user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mohammadammad144@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"service_id\":\"63ecb571c3476102b2cbc966\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/user_management/login"
+			},
+			"response": []
+		},
+		{
+			"name": "company user profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/user_management/me"
+			},
+			"response": []
+		},
+		{
+			"name": "logout company user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/user_management/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "task for company user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/task/user"
+			},
+			"response": []
+		},
+		{
+			"name": "update task status by company user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"Completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/task/update/user_status/63f751daf1887268498eb303"
+			},
+			"response": []
+		},
+		{
+			"name": "add lead by company user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\":\"Ammad test Company\",\r\n    \"lastname\":\"Developer\",\r\n    \"email\":\"xyz@gmail.com\",\r\n    \"phone\":\"03035339904\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/lead/user/add"
+			},
+			"response": []
+		},
+		{
+			"name": "get all leads for company user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/lead/user_all"
+			},
+			"response": []
+		},
+		{
+			"name": "get lead by id for compay user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/lead/user/params/6401e413797dc9e0a0f1e745"
+			},
+			"response": []
+		},
+		{
+			"name": "group message to contact",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"email\",\r\n    \"subject\":\"This Email is for Group Email checking...\",\r\n    \"message\":\"Hello Developers. Happy Coding\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/contact/send/63f75629110ab77a1697fc34"
+			},
+			"response": []
+		},
+		{
+			"name": "get all conversation by (email & sms) (admin)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/conversation"
+			},
+			"response": []
+		}
+	]
+}

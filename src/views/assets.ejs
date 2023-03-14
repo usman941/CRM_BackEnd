@@ -1,0 +1,91 @@
+<%- include('partials/Header') %>
+<!-- navabr start -->
+<%- include('partials/Navbar') %>
+<!-- navabr end  -->
+
+<!-- application form start  -->
+<section class="flex justify-center items-center mt-20 mb-10">
+    <main id="form_1" class="bg-white w-3/5 rounded-lg px-10 py-14" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+        <div>
+            <div>
+                <h1 class="text-4xl font-bold mb-5">Assets</h1>
+            </div>
+            <div>
+                <p class="text-lg font-normal text-[#555E67]">Include all cash, investment, and retirement accounts that you'll use for your down payment and closing costs.</p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <% if (method==='PUT' ) { %>
+                <form action="/portal/dashboard/action/<%- assets._id %>?form=21" method="POST">
+                    <%} else { %>
+                        <form action="/portal/dashboard/action?form=21" method="POST">
+                            <% } %>
+                
+                <div class="flex flex-col justify-start items-start">
+                    <input type="hidden" name="lead_id" value="<%- lead %>">
+                    <div class="flex justify-start items-center gap-2 mr-3">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Bank of America" checked>
+                        <h1>Bank of America</h1>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Chase">
+                        <h2>Chase</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Citi">
+                        <h2>Citi</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Wells Fargo">
+                        <h2>Wells Fargo</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Capital One bank">
+                        <h2>Capital One bank</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="USAA">
+                        <h2>USAA</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="U.S. Bank">
+                        <h2>U.S. Bank</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Navy Federal CU">
+                        <h2>Navy Federal CU</h2>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <input type="radio" name="is_asset_type" id="" onclick="isAsset()" value="Other">
+                        <h2>Other</h2>
+                    </div>
+                </div>
+
+                <div id="assets_model">
+                    <div>
+                        <label class="text-lg font-semibold">Account Type</label>
+                        <input type="text" name="bank_account_type" value="<%- assets.bank_account_type %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                    </div>
+                    <div>
+                        <label class="text-lg font-semibold">Account Number</label>
+                        <input type="text" name="bank_account_number" value="<%- assets.bank_account_number %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                    </div>
+                    <div>
+                        <label class="text-lg font-semibold">Account Balance</label>
+                        <input type="text" name="bank_account_balance" value="<%- assets.bank_account_balance %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                    </div>
+                </div>
+
+                <div class="my-10">
+                    <button type="button" class="bg-[#CCCCCC] text-white w-60 h-16 rounded-lg text-2xl font-semibold mr-5">
+                        <a href="/portal/dashboard/application?form=5">Go Back</a>
+                    </button>
+                    <button type="submit" class="bg-[#54D491] text-white w-60 h-16 rounded-lg text-2xl font-semibold">Next Step</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+<!-- application form ends  -->
+
+<%- include('partials/Footer') %>

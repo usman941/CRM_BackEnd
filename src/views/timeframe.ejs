@@ -1,0 +1,41 @@
+<%- include('partials/Header') %>
+<!-- navabr start -->
+<%- include('partials/Navbar') %>
+<!-- navabr end  -->
+
+<!-- application form start  -->
+<section class="flex justify-center items-center mt-20 mb-10">
+    <main id="form_1" class="bg-white w-3/5 rounded-lg px-10 py-14" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+        <div>
+            <div>
+                <h1 class="text-4xl font-bold mb-5">Time Frame</h1>
+            </div>
+            <div>
+                <p class="text-lg font-normal text-[#555E67]">When do you plan to purchase your home?</p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <% if (method==='PUT' ) { %>
+                <form action="/portal/dashboard/action/<%- loanDetails._id %>?form=10" method="POST">
+                    <%} else { %>
+                        <form action="/portal/dashboard/action?form=10" method="POST">
+                            <% } %>
+                
+                <div>
+                    <label class="text-lg font-semibold">TimeFrame</label>
+                    <input type="text" name="timeFrame" value="<%- loanDetails.timeFrame %>" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                </div>
+
+                <div class="my-10">
+                    <button type="button" class="bg-[#CCCCCC] text-white w-60 h-16 rounded-lg text-2xl font-semibold mr-5">
+                        <a href="/portal/dashboard/application?form=9">Go Back</a>
+                    </button>
+                    <button type="submit" class="bg-[#54D491] text-white w-60 h-16 rounded-lg text-2xl font-semibold">Next Step</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+<!-- application form ends  -->
+
+<%- include('partials/Footer') %>

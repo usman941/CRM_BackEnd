@@ -1,0 +1,50 @@
+<%- include('partials/Header') %>
+    <section class="bg-[#F4F4F4] w-full h-screen flex justify-center items-center">
+        <div class="flex flex-col md:flex-row justify-center items-start gap-10">
+            <div class="bg-white flex justify-center items-center px-8 py-5 rounded-lg" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                <div>
+                    <img src="https://msf.shapeportal.com/preview/logo/4018_logo_mainlogo.png" class="rounded-lg w-44"
+                        alt="">
+                </div>
+                <div class="ml-3">
+                    <h1 class="text-3xl font-bold">MSF Lending Inc.</h1>
+                    <div class="text-lg text-[#555E67] mt-7">
+                        <p>(877) 770-5674</p>
+                        <p>sabina@msflendinginc.com</p>
+                        <p>NMLS # 499850</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white py-10 px-8 rounded-lg" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                <div class="w-3/5 pb-10">
+                    <h1 class="text-4xl font-bold">Welcome Back!</h1>
+                </div>
+                <form action="/portal/login" method="POST">
+                    <% if (ref === 'unauthorized') { %>
+                     <p class="text-red-800 text-sm mb-5">Session Expired.</p>
+                    <% } %>
+                    <div>
+                        <input type="hidden" name="ref" value="<%= ref %>">
+                        <input type="email" name="email" id="email" placeholder="Email" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                    </div>
+                    <div class="my-3">
+                        <input type="password" name="password" id="password" placeholder="Password" class="bg-[#eef0f4] w-full h-12 rounded-md px-3 py-2 font-semibold outline-none">
+                    </div>
+                    <div>
+                        <p class="text-red-500 text-sm"><%- message %></p>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-10 my-8">
+                        <div class="w-[450px]">
+                            <p class="text-lg text-[#555E67]">
+                                By submitting this form, you are providing your consent to receive marketing communications.
+                            </p>
+                        </div>
+                        <div>
+                            <button type="submit" class="bg-[#54D491] text-white w-60 h-14 rounded-lg text-2xl font-semibold">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <%- include('partials/Footer') %>
