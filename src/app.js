@@ -6,10 +6,12 @@ const cookieParser = require('cookie-parser');
 const RootRoute = require("./routes/root.route");
 const FormRouter = require("./routes/form.route");
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 dotenv.config();
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
