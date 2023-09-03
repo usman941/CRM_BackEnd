@@ -1,5 +1,4 @@
 const Blog = require('../models/blogs');
-const multer = require('multer');
 
 // Create a new blog post
 exports.createBlog = async (req, res) => {
