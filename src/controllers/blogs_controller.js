@@ -3,12 +3,14 @@ const Blog = require('../models/blogs');
 // Create a new blog post
 exports.createBlog = async (req, res) => {
   try {
-    const { title, content, author, date, image } = req.body;
+    const { title, content, author, date } = req.body;
+    const image = req.file.filename;
     const blog = new Blog({ title, content, author, date, image });
     const savedBlog = await blog.save();
     res.json(savedBlog);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 
